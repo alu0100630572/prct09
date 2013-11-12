@@ -1,6 +1,7 @@
 # MathsMatrixUllEtsiiLppT41
 
-TODO: Write a gem description
+La jerarquía de clases para implementar las matrices densas y dispersas será:
+Una clase base Matriz de la cual heredarán de ella dos clases, MatrizDispersa y MatrizDensa. 
 
 ## Installation
 
