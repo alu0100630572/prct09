@@ -220,4 +220,35 @@ class MatrizDispersa < Matriz
     end
     aux
   end
+
+  def <=>(mat)
+    if (@nFil == mat.nFil && @mCol == mat.mCol)
+      comparacion = 0
+      for i in 0...@nFil do
+        for j in 0...@mCol do
+          if ((!@matriz[i].nil?) && (!@matriz[i][j].nil?) && (!mat.matriz[i].nil?) && (!mat.matriz[i][j].nil?))
+            comparacion += @matriz[i][j] <=> mat.matriz[i][j]
+          elsif ((!@matriz[i].nil?) && (!@matriz[i][j].nil?) && ((mat.matriz[i].nil?) || ((!mat.matriz[i].nil?) && mat.matriz[i][j].nil?)))
+            if (@matriz[i][j] > 0)
+              comparacion += 1
+            elsif (@matriz[i][j] < 0)
+              comparacion -= 1
+            end
+          elsif ((!mat.matriz[i].nil?) && (!mat.matriz[i][j].nil?) && ((@matriz[i].nil?) || ((!@matriz[i].nil?) && @matriz[i][j].nil?)))
+            if (mat.matriz[i][j] > 0)
+              comparacion -= 1
+            elsif (mat.matriz[i][j] < 0)
+              comparacion += 1
+            end
+          end
+        end
+      end
+    end
+    if (comparacion > 0)
+      comparacion = 1
+    elsif (comparacion < 0)
+      comparacion = -1
+    end
+    comparacion
+  end
 end
