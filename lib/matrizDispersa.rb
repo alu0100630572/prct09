@@ -251,4 +251,47 @@ class MatrizDispersa < Matriz
     end
     comparacion
   end
+
+  def max
+    maxi = 0
+    for i in 0...@nFil do
+      for j in 0...@mCol do
+        if ((!@matriz[i].nil?) && (!@matriz[i][j].nil?))
+          if (maxi < @matriz[i][j])
+            maxi = @matriz[i][j]
+          end
+        end
+      end
+    end
+    maxi
+  end
+
+  def min
+    mini = 0
+    for i in 0...@nFil do
+      for j in 0...@mCol do
+        if ((!@matriz[i].nil?) && (!@matriz[i][j].nil?))
+          if (mini > @matriz[i][j])
+            mini = @matriz[i][j]
+          end
+        end
+      end
+    end
+    mini
+  end
+
+  def to_dispersa(matDen)
+    result = {}
+    for i in 0...matDen.nFil do
+      for j in 0...matDen.mCol do
+        if (matDen.matriz[i][j] != 0)
+          if (result[i].nil?)
+            result[i] = {}
+          end
+          result[i][j] = matDen.matriz[i][j]
+        end
+      end
+    end
+    aux = MatrizDispersa.new(matDen.nFil, matDen.mCol, result)
+  end
 end
