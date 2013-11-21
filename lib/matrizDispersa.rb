@@ -68,4 +68,16 @@ class MatrizDispersa < Matriz
     end
     det
   end
+
+  def x(escalar)                #multiplicacion por un escalar
+    aux = MatrizDispersa.new(@nFil, @mCol, @matriz)
+    for i in 0...@nFil do
+      for j in 0...@mCol do
+        if ((!@matriz[i].nil?) && (!@matriz[i][j].nil?))
+          aux.matriz[i][j] = @matriz[i][j] * escalar
+        end
+      end
+    end
+    aux
+  end
 end
