@@ -1,4 +1,13 @@
-require 'matriz'
+recribe "Metodo maximo y minimo" do
+    it "Se debe encontrar el maximo elemento de la matriz" do
+      (@m1.max.should == 3)
+      (@md1.max.should == 7)
+    end
+    it "Se debe poder encontrar el minimo elemento de la matriz" do
+      (@m2.min.should == 0)
+      (@md2.min.should == 0)
+    end
+  end'matriz'
 require 'matrizDispersa'
 require 'matrizDensa'
 require 'racional'
@@ -82,6 +91,17 @@ describe Matriz do
     it "Se debe poder comparar dos matrices" do
       (@m1 == @m2).should be_true
       (@md1 > @md2).should be_true
+    end
+  end
+
+  describe "Metodo maximo y minimo" do
+    it "Se debe encontrar el maximo elemento de la matriz" do
+      (@m1.max.should == 3)
+      (@md1.max.should == 7)
+    end
+    it "Se debe poder encontrar el minimo elemento de la matriz" do
+      (@m2.min.should == 0)
+      (@md2.min.should == 0)
     end
   end
 
