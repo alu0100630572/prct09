@@ -49,4 +49,12 @@ describe Matriz do
     end
   end
 
+  describe "Multiplicar por un escalar" do
+    it "Multiplicacion" do
+      ((@m3.x(2)).matriz.should == MatrizDensa.new([[4,0,2],[6,0,0],[10,2,2]]).matriz)
+      ((@m1.x(-3)).matriz.should == MatrizDensa.new([[-3,-9],[-6,0]]).matriz)
+      ((@md1.x(2)).matriz.should == MatrizDispersa.new(3,3,{0 => {0 => 6, 2 => 14}, 2 => {1 => 2}}).matriz)
+    end
+  end
+
 end
