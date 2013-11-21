@@ -57,4 +57,25 @@ describe Matriz do
     end
   end
 
+  describe "Operaciones con dos matrices" do
+    it "Se deben poder sumar dos matrices" do
+      ((@m1 + @m2).matriz.should == MatrizDensa.new([[3,4],[2,1]]).matriz)
+      ((@m5 + @m6).matriz.should == MatrizDensa.new([[Fraccion.new(2, 1), Fraccion.new(4, 5)], [Fraccion.new(2, 1), Fraccion.new(1, 1)]]).matriz)
+      ((@md1 + @md2).matriz.should == MatrizDensa.new([[3,2,9],[1,0,0],[0,1,0]]).matriz)
+      ((@md1 + @m3).matriz.should == MatrizDensa.new([[5,0,8],[3,0,0],[5,2,1]]).matriz)		#Dispersa + Densa
+    end
+    it "Se deben poder multiplicar dos matrices" do
+      ((@m1 * @m2).matriz.should == MatrizDensa.new([[2,4],[4,2]]).matriz)
+      ((@m1 * @m4).matriz.should == MatrizDensa.new([[10,1,9],[8,2,12]]).matriz)
+      ((@m5 * @m6).matriz.should == MatrizDensa.new([[Fraccion.new(3, 2), Fraccion.new(3, 10)], [Fraccion.new(47, 24), Fraccion.new(67, 180)]]).matriz)
+      ((@md1 * @md2).matriz.should == MatrizDispersa.new(3,3,{0 => {1 => 6, 2 => 6}, 2 => {0 => 1}}).matriz)
+      ((@md1 * @m3).matriz.should == MatrizDensa.new([[41,7,10],[0,0,0],[3,0,0]]).matriz)	#Dispersa * Densa
+    end
+    it "Se deben poder restar dos matrices" do
+      ((@m1 - @m2).matriz.should == MatrizDensa.new([[-1,2],[2,-1]]).matriz)
+      ((@md1 - @md2).matriz.should == MatrizDensa.new([[3,-2,5],[-1,0,0],[0,1,0]]).matriz)
+      ((@md1 - @m3).matriz.should == MatrizDensa.new([[1,0,6],[-3,0,0],[-5,0,-1]]).matriz)	#Dispersa - Densa
+    end
+  end
+
 end
