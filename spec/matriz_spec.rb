@@ -78,4 +78,11 @@ describe Matriz do
     end
   end
 
+  describe "Comparaciones de matrices" do
+    it "Se debe poder comparar dos matrices" do
+      (@m1 == @m2).should be_true
+      (@md1 > @md2).should be_true
+    end
+  end
+
 end
