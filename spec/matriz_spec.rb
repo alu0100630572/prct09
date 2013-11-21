@@ -39,4 +39,14 @@ describe Matriz do
     end
   end
 
+  describe "Operaciones unarias" do
+    it "Traspuesta" do
+      (@m3.tras.matriz == MatrizDensa.new([[2,3,5],[0,0,1],[1,0,1]]).matriz).should be_true
+      (@md1.tras.matriz == MatrizDispersa.new(3,3,{0 => {0 => 3}, 1 => {2 => 1}, 2 => {0 => 7}}).matriz).should be_true
+    end
+    it "Determinante" do
+      (@m1.det.should == -6)
+    end
+  end
+
 end
