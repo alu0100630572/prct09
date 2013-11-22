@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = MathsMatrixUllEtsiiLppT41::VERSION
   spec.authors       = ["Oliver Valido", "Rodrigo Colombo"]
   spec.email         = ["alu0100598148@ull.edu.es", "alu0100630572@ull.edu.es"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{Clases que permiten trabajar con matrices densas y dispersas}
+  spec.summary       = %q{Conjunto de clases para matrices densas y dispersas}
+  spec.homepage      = "https://github.com/alu0100630572/prct09"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
