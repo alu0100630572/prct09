@@ -15,3 +15,7 @@ task :doc do
         sh "rspec -I. spec/matriz_spec.rb --format documentation"
 end
 
+desc "Test class MatrizDensa"
+task :test do
+  sh "ruby -I. test/tc_matrizDensa.rb"
+end
